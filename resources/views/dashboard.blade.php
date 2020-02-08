@@ -135,13 +135,13 @@
                         @endforeach
                         @else
                             <tr>
-                                <td colspan="6" class="text-center">Não há nenhum registro por aqui.</td>
+                                <td colspan="3" class="text-center">Não há nenhum registro por aqui.</td>
                             </tr>
                         @endif
                     </tbody>
                   </table>
                 </div>
-                  <span class="col-md-12 text-center"><a href="#" class="btn btn-success text-white">VER TODOS</a></span>
+                  <span class="col-md-12 text-center"><a href="objetivos" class="btn btn-success text-white">VER TODOS</a></span>
               </div>
             </div>
 

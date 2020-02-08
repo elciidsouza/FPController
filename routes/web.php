@@ -32,7 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/objetivos', 'ObjetivosController@index')->name('objetivos');
     Route::get('/objetivos/new', 'ObjetivosController@formObjetivos')->name('formObjetivos');
     Route::post('/objetivos/send', 'ObjetivosController@sendObjetivos')->name('sendObjetivos');
-    Route::post('/objetivos/delete/{id}', 'ObjetivosController@delete')->name('deleteObjetivos');
+    Route::get('/objetivos/delete/{id}', 'ObjetivosController@delete')->name('deleteObjetivos');
+    Route::get('/objetivos/realizado/{id}', 'ObjetivosController@realizado')->name('realizadoObjetivos');
     
     Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Despesas;
+use App\Ganhos;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +25,33 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $user = Auth::id();
+
+        $ganhos = Ganhos::where('data', 'like', date('Y-m') . '-%')
+        ->orWhere('fixo', '=', 1)
+        ->where('ganhos.usuario_id', '=', $user);
+
+        $data['valorT'] = $ganhos->sum('valor');
+
+        $despesas = Despesas::where('data', 'like', date('Y-m') . '-%')
+        ->orWhere('fixo', '=', 1)
+        ->where('despesas.usuario_id', '=', $user)
+        ->leftJoin('cartao', 'cartao_id', '=', 'cartao.id')
+        ->leftJoin('categoria', 'categoria_id', '=', 'categoria.id')
+        ->select('despesas.id', 'despesas.descricao', 'despesas.valor', 'despesas.tipo_despesa', 'despesas.fixo', 'despesas.data', 'cartao.nome AS nome_cartao', 'categoria.nome AS nome_categoria');
+
+        $data['despesas'] = $despesas->get();
+
+        $data['despT'] = $despesas->sum('valor');
+
+        $data['saldoT'] = $ganhos->sum('valor') - $despesas->sum('valor');
+
+        $campos = array();
+        foreach ($data as $key => $value) {
+            $$key = $value;
+            $campos[] = $key;
+        }
+
+        return view('dashboard', compact($campos));
     }
 }

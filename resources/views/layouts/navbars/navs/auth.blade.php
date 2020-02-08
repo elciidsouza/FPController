@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse justify-content-end">
       <form class="navbar-form">
         <div class="input-group no-border">
-        <input type="text" value="" class="form-control" placeholder="Search...">
+        <input type="text" value="" class="form-control" placeholder="Procurar...">
         <button type="submit" class="btn btn-white btn-round btn-just-icon">
           <i class="material-icons">search</i>
           <div class="ripple-container"></div>
@@ -25,24 +25,20 @@
           <a class="nav-link" href="{{ route('home') }}">
             <i class="material-icons">dashboard</i>
             <p class="d-lg-none d-md-block">
-              {{ __('Stats') }}
+              {{ __('Status') }}
             </p>
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="material-icons">notifications</i>
-            <span class="notification">5</span>
+            <span class="notification">1</span>
             <p class="d-lg-none d-md-block">
               {{ __('Some Actions') }}
             </p>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">{{ __('Mike John responded to your email') }}</a>
-            <a class="dropdown-item" href="#">{{ __('You have 5 new tasks') }}</a>
-            <a class="dropdown-item" href="#">{{ __('You\'re now friend with Andrew') }}</a>
-            <a class="dropdown-item" href="#">{{ __('Another Notification') }}</a>
-            <a class="dropdown-item" href="#">{{ __('Another One') }}</a>
+            <a class="dropdown-item" href="#">{{ __('Notificações') }}</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -53,10 +49,10 @@
             </p>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
-            <a class="dropdown-item" href="#">{{ __('Settings') }}</a>
+            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Perfil') }}</a>
+            <a class="dropdown-item" href="#">{{ __('Configuração') }}</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Deslogar') }}</a>
           </div>
         </li>
       </ul>

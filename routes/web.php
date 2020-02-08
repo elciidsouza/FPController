@@ -31,6 +31,8 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/ganhos', 'GanhosController@index')->name('ganhos');
+    Route::get('/ganhos/new/', 'GanhosController@formGanhos')->name('formGanhos');
+    Route::get('/ganhos/new/{id}', 'GanhosController@formGanhos')->name('formGanhos');
     
 	Route::get('table-list', function () {
 		return view('pages.table_list');

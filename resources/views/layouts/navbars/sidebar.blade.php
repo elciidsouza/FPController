@@ -41,18 +41,36 @@
           </ul>
         </div>
       </li>-->
-      <li class="nav-item{{ $activePage == 'ganhos' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('ganhos') }}">
-          <i class="material-icons">attach_money</i>
-            <p>Ganhos</p>
-        </a>
-      </li>
+        <li class="nav-item{{ $activePage == 'ganhos' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('ganhos') }}">
+                <i class="material-icons">attach_money</i>
+                <p>Ganhos</p>
+            </a>
+        </li>
         <li class="nav-item{{ $activePage == 'despesas' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('despesas') }}">
-          <i class="material-icons">money_off</i>
-            <p>Despesas</p>
-        </a>
-      </li>
+            <a class="nav-link" href="{{ route('despesas') }}">
+                <i class="material-icons">money_off</i>
+                <p>Despesas</p>
+            </a>
+        </li>
+        <li class="nav-item{{ $activePage == 'cartão' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('cartoes') }}">
+                <i class="material-icons">credit_card</i>
+                <p>Cartões</p>
+            </a>
+        </li>
+        <li class="nav-item{{ $activePage == 'categorias' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('categorias') }}">
+                <i class="material-icons">list</i>
+                <p>Categorias</p>
+            </a>
+        </li>
+        <li class="nav-item{{ $activePage == 'objetivos' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('objetivos') }}">
+                <i class="material-icons">done_all</i>
+                <p>Objetivos</p>
+            </a>
+        </li>
     </ul>
   </div>
 </div>

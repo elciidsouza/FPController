@@ -1,0 +1,75 @@
+/* Custom CSS */
+
+.input-custom{
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(115, 24, 107, 0.5);
+    color: white;
+    border-radius: 8px;
+}
+
+.input-custom:focus{
+    outline: none;
+    border: 1px solid #F1F1F1;
+}
+
+.btn-search{
+    background-color: #570064;
+    color: white;
+}
+
+.btn-search:hover{
+    opacity: 0.8;
+}
+
+
+
+.btn-geral{
+    color: white;
+    background: #570064;
+}
+
+.btn-geral:hover{
+    background: #850099;
+    transition: all 0.8s ease 0s;
+}
+
+.btn-menu{
+    background-color: black;
+    height: 50px;
+    opacity: 0.6;
+    color: white !important;
+    border-radius: 1px;
+    padding-top: 12px;
+}
+
+.btn-menu:hover{
+    border: 1px solid white;
+}
+
+.btn-menu-active{
+    background-color: #F9F8FD;
+    height: 50px;
+    color: white;
+    border-radius: 1px;
+    padding-top: 12px;
+}
+
+.btn-menu-active:hover{
+    border: 1px solid white;
+}
+
+.bg-gray{
+    background: #e6e6e6;
+}
+
+.bg-top-table{
+    background-image: linear-gradient(to right, #3A7EC7 ,#3A7EC7, #2F449C);
+    color: white;
+}
+
+@media (min-width: 768px){
+    .offset-md-05{
+        margin-left: 4.1%;
+    }
+}

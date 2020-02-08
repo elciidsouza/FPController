@@ -6,8 +6,6 @@ Route::get('/', function(){
     return view('auth.login');
 });
 
-Route::post('/logar', 'Auth\LoginController@loginNameOrEmail');
-
 Route::group(['middleware' => 'auth'], function () {
 
     // All my routes that needs a logged in user
@@ -16,20 +14,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
         return redirect('/home');
     });
-
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/imports/{pass}', 'ImportsAnimesController@index');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-
-Route::group(['middleware' => 'auth'], function () {
+    
     Route::get('/ganhos', 'GanhosController@index')->name('ganhos');
     Route::get('/ganhos/new/', 'GanhosController@formGanhos')->name('formGanhos');
     Route::post('/ganhos/send', 'GanhosController@sendGanhos')->name('sendGanhos');
@@ -45,10 +30,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/categorias', 'CategoriasController@index')->name('categorias');
     
     Route::get('/objetivos', 'ObjetivosController@index')->name('objetivos');
+    Route::get('/objetivos/new', 'ObjetivosController@formObjetivos')->name('formObjetivos');
+    Route::post('/objetivos/send', 'ObjetivosController@sendObjetivos')->name('sendObjetivos');
+    Route::post('/objetivos/delete/{id}', 'ObjetivosController@delete')->name('deleteObjetivos');
     
     Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+
 });
 
+Auth::routes();

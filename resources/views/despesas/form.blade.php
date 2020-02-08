@@ -82,7 +82,7 @@
 
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-success">Enviar</button>
-                            <a href="/ganhos" class="btn btn-danger">Cancelar</a>
+                            <a href="/despesas" class="btn btn-danger">Cancelar</a>
                         </div>
 
                     </form>

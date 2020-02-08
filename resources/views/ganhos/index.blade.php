@@ -92,17 +92,30 @@
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>Descrição</th>
+                      <th>Data</th>
+                      <th>Fixo</th>
                       <th>Valor</th>
+                      <th>Ações</th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Salário</td>
-                        <td>R$ 1600.00</td>
-                      </tr>
-                        <tr class="table-secondary">
-                            <td>TOTAL</td>
-                            <td>R$ 1600.00</td>
+                        @if(count($ganhos)> 0)
+                          @foreach($ganhos as $ganho)
+                            <tr>
+                                <td>{{$ganho->descricao}}</td>
+                                <td>@if($ganho->data == null) - @else {{$ganho->data}} @endif</td>
+                                <td>@if($ganho->fixo == 1) <span class="text-success">SIM</span> @else <span class="text-danger">NÃO</span> @endif</td>
+                                <td>R$ {{number_format($ganho->valor, 2, ',', '.')}}</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td colspan="3">TOTAL</td>
+                                <td colspan="2">R$ {{number_format($ganhosTotal, 2, ',', '.')}}</td>
+                            </tr>
+                          @endforeach
+                        @else
+                        <tr>
+                            <td colspan="5" class="text-center">Não há nenhum registro por aqui.</td>
                         </tr>
+                        @endif
                     </tbody>
                   </table>
                 </div>

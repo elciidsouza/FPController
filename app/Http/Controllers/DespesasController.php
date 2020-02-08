@@ -65,8 +65,13 @@ class DespesasController extends Controller
             
             $valorDescricao = $i + 1;
             
-            $despesa->descricao = $request->descricao . ' ' . $valorDescricao . '/' . $parcelas;
-                $despesa->valor = $request->valor / $parcelas;
+            if($parcelas > 1){
+                $despesa->descricao = $request->descricao . ' ' . $valorDescricao . '/' . $parcelas;
+            } else {
+                $despesa->descricao = $request->descricao;
+            }
+            
+            $despesa->valor = $request->valor / $parcelas;
 
             if($request->fixo == 'on'){
                 $despesa->fixo = 1;

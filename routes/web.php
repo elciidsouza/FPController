@@ -34,18 +34,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/ganhos/new/', 'GanhosController@formGanhos')->name('formGanhos');
     Route::post('/ganhos/send', 'GanhosController@sendGanhos')->name('sendGanhos');
     Route::get('/ganhos/delete/{id}', 'GanhosController@delete')->name('deleteGanhos');
-    
+
     Route::get('/despesas', 'DespesasController@index')->name('despesas');
     Route::get('/despesas/new/', 'DespesasController@formDespesas')->name('formDespesas');
     Route::post('/despesas/send', 'DespesasController@sendDespesas')->name('sendDespesas');
     Route::get('/despesas/delete/{id}', 'DespesasController@delete')->name('deleteDespesas');
-    
+
     Route::get('/cartoes', 'CartaoController@index')->name('cartoes');
-    
+    Route::get('/cartoes/new/', 'CartaoController@formCartoes')->name('formCartoes');
+    Route::post('/cartoes/send', 'CartaoController@sendCartoes')->name('sendCartoes');
+    Route::get('/cartoes/delete/{id}', 'CartaoController@delete')->name('deleteCartoes');
+
     Route::get('/categorias', 'CategoriasController@index')->name('categorias');
-    
+    Route::get('/categorias/new/', 'CategoriasController@formCategorias')->name('formCategorias');
+    Route::post('/categorias/send', 'CategoriasController@sendCategorias')->name('sendCategorias');
+    Route::get('/categorias/delete/{id}', 'CategoriasController@deleteCategorias')->name('deleteCategorias');
+
     Route::get('/objetivos', 'ObjetivosController@index')->name('objetivos');
-    
+
     Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);

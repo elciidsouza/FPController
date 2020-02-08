@@ -1,5 +1,5 @@
-@extends('layouts.app', ['activePage' => 'ganhos', 'titlePage' => 'Ganhos'])
-@section('title', 'Ganhos')
+@extends('layouts.app', ['activePage' => 'despesas', 'titlePage' => 'Despesas'])
+@section('title', 'Despesas')
 
 @section('content')
   <div class="content">
@@ -10,7 +10,7 @@
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="card">
-                <div class="card-header card-header-success">
+                <div class="card-header card-header-danger">
                   <h4 class="card-title">Filtrar</h4>
                 </div>
                 <div class="card-body table-responsive">
@@ -62,18 +62,19 @@
             
             <div class="col-lg-12 col-md-12">
               <div class="card">
-                <div class="card-header card-header-success">
-                  <h4 class="card-title">Seus Ganhos</h4>
-                  <p class="card-category">Sua listagem de ganhos</p>
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">Suas despesas</h4>
+                  <p class="card-category">Sua listagem de despesas</p>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>Descrição</th>
                       <th>Data</th>
+                      <th>Tipo</th>
                       <th>Fixo</th>
-                      <th>Valor</th>
-                      <th>Ações</th>
+                      <th>Categoria</th>
+                      <th>Cartão</th>
                     </thead>
                     <tbody>
                         @if(count($ganhos)> 0)

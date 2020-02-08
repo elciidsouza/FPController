@@ -34,6 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/ganhos/new/', 'GanhosController@formGanhos')->name('formGanhos');
     Route::get('/ganhos/new/{id}', 'GanhosController@formGanhos')->name('formGanhos');
     Route::post('/ganhos/send', 'GanhosController@sendGanhos')->name('sendGanhos');
+    Route::get('/ganhos/delete/{id}', 'GanhosController@delete')->name('deleteGanhos');
+    
+    Route::get('/despesas', 'DespesasController@index')->name('despesas');
     
 	Route::get('table-list', function () {
 		return view('pages.table_list');

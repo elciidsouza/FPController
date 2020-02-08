@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Despesas extends Model
+class Categoria extends Model
 {
     public $timestamps = false;
+    protected $table = 'categoria';
 }

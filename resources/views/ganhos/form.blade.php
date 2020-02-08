@@ -16,17 +16,17 @@
 
                         <div class="form-group">
                             <label>Descrição</label>
-                            <input type="text" name="descricao" class="form-control">
+                            <input type="text" name="descricao" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label>Valor</label>
-                            <input type="text" name="valor" class="form-control money">
+                            <input type="text" name="valor" class="form-control money" required>
                         </div>
                         
                         <div class="form-group">
                             <label>Data</label>
-                            <input type="date" name="data" id="data" class="form-control" value="{{date("Y-m-d")}}">
+                            <input type="date" name="data" id="data" class="form-control" value="{{date("Y-m-d")}}" required>
                         </div>
                         
                         <div class="form-check">

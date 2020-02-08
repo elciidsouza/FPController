@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <a class="btn btn-lg btn-success pull-right" href="/ganhos/new">NOVO</a>
+                <a class="btn btn-lg btn-primary pull-right" href="/despesas/new">NOVO</a>
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="card">
@@ -52,7 +52,7 @@
                         
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-info">Buscar</button>
-                            <a href="/ganhos" class="btn btn-default">LIMPAR</a>
+                            <a href="/despesas" class="btn btn-default">LIMPAR</a>
                         </div>
                         
                     </form>
@@ -75,25 +75,30 @@
                       <th>Fixo</th>
                       <th>Categoria</th>
                       <th>Cartão</th>
+                      <th>Valor</th>
+                      <th>Ações</th>
                     </thead>
                     <tbody>
-                        @if(count($ganhos)> 0)
-                          @foreach($ganhos as $ganho)
+                        @if(count($despesas)> 0)
+                          @foreach($despesas as $despesa)
                             <tr>
-                                <td>{{$ganho->descricao}}</td>
-                                <td>@if($ganho->data == null) - @else {{date_format(date_create($ganho->data), 'd/m/Y')}} @endif</td>
-                                <td>@if($ganho->fixo == 1) <span class="text-success">SIM</span> @else <span class="text-danger">NÃO</span> @endif</td>
-                                <td>R$ {{number_format($ganho->valor, 2, ',', '.')}}</td>
-                                <td><a onclick="return confirm('Você quer mesmo excluir este ganho?')" href="/ganhos/delete/{{$ganho->id}}"><i class="fa fa-trash"></i> Apagar</a></td>
+                                <td>{{$despesa->descricao}}</td>
+                                <td>@if($despesa->data == null) - @else {{date_format(date_create($despesa->data), 'd/m/Y')}} @endif</td>
+                                <td>{{$despesa->tipo_despesa}}</td>
+                                <td>@if($despesa->fixo == 1) <span class="text-success">SIM</span> @else <span class="text-danger">NÃO</span> @endif</td>
+                                <td>{{$despesa->nome_categoria}}</td>
+                                <td>{{$despesa->nome_cartao}}</td>
+                                <td>R$ {{number_format($despesa->valor, 2, ',', '.')}}</td>
+                                <td><a onclick="return confirm('Você quer mesmo excluir este despesa?')" href="/despesas/delete/{{$despesa->id}}"><i class="fa fa-trash"></i> Apagar</a></td>
                             </tr>
                           @endforeach
                         <tr class="table-secondary">
-                            <td colspan="3">TOTAL</td>
-                            <td colspan="2">R$ {{number_format($ganhosTotal, 2, ',', '.')}}</td>
+                            <td colspan="6">TOTAL</td>
+                            <td colspan="2">R$ {{number_format($despesasTotal, 2, ',', '.')}}</td>
                         </tr>
                         @else
                         <tr>
-                            <td colspan="5" class="text-center">Não há nenhum registro por aqui.</td>
+                            <td colspan="8" class="text-center">Não há nenhum registro por aqui.</td>
                         </tr>
                         @endif
                     </tbody>

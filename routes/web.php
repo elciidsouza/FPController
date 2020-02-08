@@ -32,11 +32,13 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/ganhos', 'GanhosController@index')->name('ganhos');
     Route::get('/ganhos/new/', 'GanhosController@formGanhos')->name('formGanhos');
-    Route::get('/ganhos/new/{id}', 'GanhosController@formGanhos')->name('formGanhos');
     Route::post('/ganhos/send', 'GanhosController@sendGanhos')->name('sendGanhos');
     Route::get('/ganhos/delete/{id}', 'GanhosController@delete')->name('deleteGanhos');
     
     Route::get('/despesas', 'DespesasController@index')->name('despesas');
+    Route::get('/despesas/new/', 'DespesasController@formDespesas')->name('formDespesas');
+    Route::post('/despesas/send', 'DespesasController@sendDespesas')->name('sendDespesas');
+    Route::get('/despesas/delete/{id}', 'DespesasController@delete')->name('deleteDespesas');
     
 	Route::get('table-list', function () {
 		return view('pages.table_list');

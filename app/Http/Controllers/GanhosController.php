@@ -37,11 +37,8 @@ class GanhosController extends Controller
         return view('ganhos/index', compact($campos));
     }
     
-    public function formGanhos($id = 0){
+    public function formGanhos(){
         $data = [];
-        if($id != 0){
-            $data['ganhos'] = Ganhos::find($id);
-        }
         
         $campos = array();
         foreach ($data as $key => $value) {
@@ -53,11 +50,7 @@ class GanhosController extends Controller
     }
     
     public function sendGanhos(Request $request){
-        if(isset($request->id)){
-            $ganhos = Ganhos::find($request->id);
-        } else {
-            $ganhos = new Ganhos;
-        }
+        $ganhos = new Ganhos;
         
         $ganhos->descricao = $request->descricao;
         $ganhos->valor = $request->valor;

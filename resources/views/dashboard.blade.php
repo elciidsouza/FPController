@@ -125,11 +125,19 @@
                       <th>Prazo</th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>KIT PC</td>
-                        <td>R$ 1200</td>
-                        <td>01/02/2020</td>
-                      </tr>
+                        @if (count($objetivos) > 0)
+                        @foreach ($objetivos as $item)
+                            <tr>
+                                <td>{{ $item->descricao }}</td>
+                                <td>R$ {{ number_format($item->valor, 2, ',', '.') }}</td>
+                                <td>{{ date("d/m/Y", strtotime($item->prazo)) }}</td>
+                            </tr>
+                        @endforeach
+                        @else
+                            <tr>
+                                <td colspan="6" class="text-center">Não há nenhum registro por aqui.</td>
+                            </tr>
+                        @endif
                     </tbody>
                   </table>
                 </div>

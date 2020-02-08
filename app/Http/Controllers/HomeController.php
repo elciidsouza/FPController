@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Despesas;
 use App\Ganhos;
+use App\Objetivos;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -45,6 +46,9 @@ class HomeController extends Controller
         $data['despT'] = $despesas->sum('valor');
 
         $data['saldoT'] = $ganhos->sum('valor') - $despesas->sum('valor');
+
+        $data['objetivos'] = Objetivos::where('objetivos.usuario_id', '=', $user)
+        ->where('realizado', '=', 0)->get();
 
         $campos = array();
         foreach ($data as $key => $value) {

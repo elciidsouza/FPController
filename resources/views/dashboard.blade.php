@@ -123,6 +123,7 @@
                       <th>Objetivo</th>
                       <th>Valor</th>
                       <th>Prazo</th>
+                      <th>Realizado</th>
                     </thead>
                     <tbody>
                         @if (count($objetivos) > 0)
@@ -131,6 +132,7 @@
                                 <td>{{ $item->descricao }}</td>
                                 <td>R$ {{ number_format($item->valor, 2, ',', '.') }}</td>
                                 <td>{{ date("d/m/Y", strtotime($item->prazo)) }}</td>
+                                <td>@if($item->realizado == 1) <span class="text-success">SIM</span> @else <span class="text-danger">NÃO</span> @endif</td>
                             </tr>
                         @endforeach
                         @else

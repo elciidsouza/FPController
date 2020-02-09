@@ -47,8 +47,7 @@ class HomeController extends Controller
 
         $data['saldoT'] = $ganhos->sum('valor') - $despesas->sum('valor');
 
-        $data['objetivos'] = Objetivos::where('objetivos.usuario_id', '=', $user)
-        ->where('realizado', '=', 0)->get();
+        $data['objetivos'] = Objetivos::where('usuario_id', '=', $user)->get();
 
         $campos = array();
         foreach ($data as $key => $value) {

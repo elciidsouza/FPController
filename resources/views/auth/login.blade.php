@@ -46,14 +46,6 @@
                 <input type="password" name="password" id="password" class="form-control" placeholder="Digite sua senha" required>
               </div>
             </div>
-            <div class="form-check mr-auto ml-3 mt-3">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Lembrar-me
-                <span class="form-check-sign">
-                  <span class="check"></span>
-                </span>
-              </label>
-            </div>
           </div>
           <div class="card-footer justify-content-center">
             <button type="submit" class="btn btn-primary btn-lg">{{ __('Lets Go') }}</button>

@@ -166,7 +166,7 @@
                             @foreach ($despesas as $item)
                                 <tr>
                                     <td>{{ $item->descricao }}</td>
-                                    <td>R$ {{ number_format($item->item_valor, 2, ',', '.') }}</td>
+                                    <td>R$ {{ number_format($item->valor, 2, ',', '.') }}</td>
                                     <td>{{$item->data}}</td>
                                     <td>{{ $item->nome_categoria }}</td>
                                     <td>{{ $item->tipo_despesa }}</td>

@@ -35,10 +35,9 @@ class HomeController extends Controller
         $data['valorT'] = $ganhos->sum('valor');
 
         $despesas = Despesas::where('data', 'like', date('Y-m') . '-%')
-        ->orWhere('fixo', '=', 1)
-        ->where('despesas.usuario_id', '=', $user)
         ->leftJoin('cartao', 'cartao_id', '=', 'cartao.id')
         ->leftJoin('categoria', 'categoria_id', '=', 'categoria.id')
+        ->where('despesas.usuario_id', '=', $user)
         ->select('despesas.id', 'despesas.descricao', 'despesas.valor', 'despesas.tipo_despesa', 'despesas.fixo', 'despesas.data', 'cartao.nome AS nome_cartao', 'categoria.nome AS nome_categoria');
 
         $data['despesas'] = $despesas->get();

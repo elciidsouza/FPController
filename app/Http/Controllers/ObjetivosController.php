@@ -10,7 +10,7 @@ class ObjetivosController extends Controller
 {
     public function index(Request $request){
         $data = [];
-        $data['objetivos'] = Objetivos::all();
+        $data['objetivos'] = Objetivos::where('usuario_id', '=', Auth::id());
         
         $campos = array();
         foreach ($data as $key => $value) {

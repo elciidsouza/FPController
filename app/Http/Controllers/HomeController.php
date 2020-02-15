@@ -44,7 +44,7 @@ class HomeController extends Controller
             $query
             ->where('data', 'LIKE', date('Y-m') . '-%')
             ->orWhere('fixo', '=', 1);
-        })->where('despesas.usuario_id', '=', $user);
+        })->where('despesas.usuario_id', '=', $user)->take(5);
 
 
         $data['despesas'] = $despesas->get();

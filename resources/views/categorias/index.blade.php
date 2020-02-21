@@ -41,6 +41,7 @@
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>Nome</th>
+                      <th>Contabiliza</th>
                       <th>Ações</th>
                     </thead>
                     <tbody>
@@ -48,6 +49,7 @@
                         @foreach($categoria as $item)
                           <tr>
                               <td>{{$item->nome}}</td>
+                              <td>@if($item->contabiliza == 0) <span class="text-success">SIM</span> @else <span class="text-danger">NÃO</span> @endif</td>
                               <td><a onclick="return confirm('Você quer mesmo excluir este ganho?')" href="/categorias/delete/{{$item->id}}"><i class="fa fa-trash"></i> Apagar</a></td>
                           </tr>
                         @endforeach

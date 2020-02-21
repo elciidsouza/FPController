@@ -18,6 +18,16 @@
                             <label>Nome</label>
                             <input type="text" name="nome" class="form-control" required>
                         </div>
+                        
+                        <div class="form-check">
+                          <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" name="contabiliza">
+                              Não contabilizar do total
+                              <span class="form-check-sign">
+                                  <span class="check"></span>
+                              </span>
+                          </label>
+                        </div>
 
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-success">Enviar</button>

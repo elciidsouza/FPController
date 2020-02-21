@@ -39,6 +39,9 @@ class CategoriasController extends Controller
     {
         $categoria = new Categoria;
         $categoria->nome = $request->nome;
+        if($request->contabiliza == 'on'){
+            $categoria->contabiliza = 1;
+        }
         $categoria->usuario_id = Auth::id();
 
         if($categoria->save()){

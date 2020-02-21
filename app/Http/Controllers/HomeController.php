@@ -37,14 +37,14 @@ class HomeController extends Controller
 
         $data['valorT'] = $ganhos->sum('valor');
 
-        $despesas = Despesas::select('despesas.id', 'despesas.descricao', 'despesas.valor', 'despesas.tipo_despesa', 'despesas.fixo', 'despesas.data', 'cartao.nome AS nome_cartao', 'categoria.nome AS nome_categoria')
+        $despesas = Despesas::select('despesas.id', 'despesas.descricao', 'despesas.valor', 'despesas.tipo_despesa', 'despesas.fixo', 'despesas.data', 'cartao.nome AS nome_cartao', 'categoria.nome AS nome_categoria', 'categoria.contabiliza')
         ->leftJoin('categoria', 'categoria.id', '=', 'despesas.categoria_id')
         ->leftJoin('cartao', 'cartao.id', '=', 'despesas.cartao_id')
         ->where(function($query){
             $query
             ->where('data', 'LIKE', date('Y-m') . '-%')
             ->orWhere('fixo', '=', 1);
-        })->where('despesas.usuario_id', '=', $user)->take(5);
+        })->where('despesas.usuario_id', '=', $user)->where('categoria.contabiliza', '=', 0)->take(5);
 
 
         $data['despesas'] = $despesas->get();

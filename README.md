@@ -1,10 +1,11 @@
-# FPController - Seu controle financeiro
+# FPController - Financer controller
 
-Este projeto tem o intuito de criar um sistema de controle financeiro. Ele conta com as seguintes páginas:
-- GANHOS(Você pode adicionar seus ganhos, seja mensal ou fixo);
-- DESPESAS(Você pode adicionar suas despesas, seja mensal ou fixa);
-- OBJETIVOS(Você pode criar uma lista de objetivos, definir um prazo e o valor);
+This project have an intention to help you in your personal finances.
+Have same pages:
+- Earnings
+- Losses
+- Objectives
 
-Criadores: 
+Created by:
 - @elciidsouza
 - @SanchezYuri
